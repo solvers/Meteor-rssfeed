@@ -1,7 +1,7 @@
 Package.describe({
     summary: "\u001b[32mv0.0.1\n"+
          "\u001b[33m-----------------------------------------\n"+
-         "\u001b[0m Adds basic support for rss feed          \n"+
+         "\u001b[0m Adds basic support for rss feed v2.0     \n"+
          "\u001b[0m                                          \n"+
          "\u001b[33m-------------------------------------RaiX\n"
 });
