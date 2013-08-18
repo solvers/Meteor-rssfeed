@@ -57,6 +57,7 @@ RssFeed.publish('test', function(query) {
 #API
 * RssFeed.publish: function(name, handlerFunction)
 * RssFeed.unpublish: function(name)
+##Internal
 * RssFeed.createTag: function(key, value)
 * RssFeed.cdataValue: function(value)
 * RssFeed.objectToXML: function(sourceObject)
