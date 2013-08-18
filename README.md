@@ -61,7 +61,7 @@ RssFeed.publish('test', function(query) {
 * RssFeed.cdataValue: function(value)
 * RssFeed.objectToXML: function(sourceObject)
 
-#this in publish callback
+#this in publish feed handler helpers
 * this.cdata: RssFeed.cdataValue
 * this.setValue: function(key, value)
 * this.addItem: function(itemObject)
