@@ -56,7 +56,7 @@ RssFeed = {
       return value;
     }
 
-    console.log('create tag: ' + key + ' = ' + value);
+    //console.log('create tag: ' + key + ' = ' + value);
     return '<' + key + '>' + value + '</' + key + '>';
   },
   cdataValue: function(value) {
@@ -157,11 +157,11 @@ WebApp.connectHandlers.use(function(req, res, next) {
     var feedScope = {
       cdata: RssFeed.cdataValue,
       setValue: function(key, value) {
-        console.log('setValue: ' + key + ' = ' + value);
+        //console.log('setValue: ' + key + ' = ' + value);
         feedObject.channel[key] = value;
       },
       addItem: function(itemObject) {
-        console.log('setItem ' + itemObject.title);
+        //console.log('setItem ' + itemObject.title);
         feedObject.channel.item.push(itemObject);
       }
 
@@ -175,7 +175,7 @@ WebApp.connectHandlers.use(function(req, res, next) {
     feed += RssFeed.objectToXML(feedObject);
     feed += '</rss>';
 
-  console.log('SENDS MESSAGE....');
+  //console.log('SENDS MESSAGE....');
 
     var feedBuffer = new Buffer(feed);
 
