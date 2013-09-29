@@ -1,6 +1,5 @@
-RSS Feed
+RSS Feed [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K376KX72RW9M8)
 ========
-
 A package for serving data in RSS 2.0 XML format for Meteor
 
 This package requires Meteor 0.6.5+ and only have an server-side api
