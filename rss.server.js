@@ -161,7 +161,7 @@ WebApp.connectHandlers.use(function(req, res, next) {
 
     var feedBuffer = new Buffer(feed);
 
-    self.res.setHeader('Content-Type', 'application/rss+xml');
+    self.res.setHeader('Content-Type', 'application/rss+xml; charset=utf-8');
     self.res.setHeader('Content-Length', feedBuffer.length);
     self.res.end(feedBuffer);
 
