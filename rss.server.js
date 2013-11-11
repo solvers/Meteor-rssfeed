@@ -1,17 +1,6 @@
 /*
-
-This package publishes data as rss feeds, it takes params and listens on the
-url "/rss"
-
-Added a query field:
-
-uel "/rss?q=todaysnews"
-
-
-
-
-
-*/
+ * meteor-rssfeed — This package publishes data as rss feeds, it takes params and listens on the url "/rss"
+ */
 
 // Polyfill
 if(!Array.isArray) {
@@ -56,7 +45,6 @@ RssFeed = {
       return value;
     }
 
-    //console.log('create tag: ' + key + ' = ' + value);
     return '<' + key + '>' + value + '</' + key + '>';
   },
   cdataValue: function(value) {
@@ -88,7 +76,7 @@ RssFeed = {
               result += this.createTag(key, this.objectToXML(value));
             }
           }
-          
+
         } else {
           if (typeof value === 'function') {
             // Should we execute the function and return the value into tag?
@@ -118,7 +106,6 @@ WebApp.connectHandlers.use(function(req, res, next) {
   var parsed = url.parse(req.url, true);
   var folders = parsed.pathname.split('/');
 
-  //var parsedUrl = url.parse(req.url);
   feedName = folders[2];
 
   // If feedHandler not found or somehow the feedhandler is not a function then
@@ -157,15 +144,11 @@ WebApp.connectHandlers.use(function(req, res, next) {
     var feedScope = {
       cdata: RssFeed.cdataValue,
       setValue: function(key, value) {
-        //console.log('setValue: ' + key + ' = ' + value);
         feedObject.channel[key] = value;
       },
       addItem: function(itemObject) {
-        //console.log('setItem ' + itemObject.title);
         feedObject.channel.item.push(itemObject);
       }
-
-      //Fiber: Npm.require('fibers')
     };
 
     feedHandlers[feedName].apply(feedScope, [self.query]);
@@ -175,11 +158,10 @@ WebApp.connectHandlers.use(function(req, res, next) {
     feed += RssFeed.objectToXML(feedObject);
     feed += '</rss>';
 
-  //console.log('SENDS MESSAGE....');
 
     var feedBuffer = new Buffer(feed);
 
-    self.res.setHeader('Content-Type', 'application/rss+xml');
+    self.res.setHeader('Content-Type', 'application/rss+xml; charset=utf-8');
     self.res.setHeader('Content-Length', feedBuffer.length);
     self.res.end(feedBuffer);
 
